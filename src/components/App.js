@@ -39,7 +39,9 @@ function App() {
   }
 
   function addNewListing(formData) {
-    setAllListings([...allListings, formData])
+    let newID = Math.random() * 1000
+    let newListing = {...formData, "id": newID}
+    setAllListings([...allListings, newListing])
   }
   
   const listingsShownAfterSearch = (searchedListings.length > 0) ? searchedListings : allListings;
