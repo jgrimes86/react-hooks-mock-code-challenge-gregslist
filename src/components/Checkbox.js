@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Radio({sortByLocation}) {
+function Checkbox({sortByLocation}) {
     const [radioChecked, setRadioChecked] = useState(false)
 
     function handleChange() {
@@ -22,4 +22,4 @@ function Radio({sortByLocation}) {
       );
 }
 
-export default Radio;
+export default Checkbox;

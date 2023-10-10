@@ -36,7 +36,11 @@ function App() {
 
   function sortByLocation() {
     setLocationSort(!locationSort)
-  } 
+  }
+
+  function addNewListing(formData) {
+    setAllListings([...allListings, formData])
+  }
   
   const listingsShownAfterSearch = (searchedListings.length > 0) ? searchedListings : allListings;
 
@@ -54,7 +58,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header searchListings={searchListings} sortByLocation={sortByLocation} />
+      <Header searchListings={searchListings} sortByLocation={sortByLocation} addNewListing={addNewListing} />
       <ListingsContainer displayedListings={displayedListings} deleteListing={deleteListing} />
     </div>
   );

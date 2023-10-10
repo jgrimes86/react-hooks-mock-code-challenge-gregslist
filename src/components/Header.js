@@ -1,8 +1,9 @@
 import React from "react";
 import Search from "./Search";
-import Radio from "./Radio";
+import Checkbox from "./Checkbox";
+import Form from "./Form";
 
-function Header({searchListings, sortByLocation}) {
+function Header({searchListings, sortByLocation, addNewListing}) {
   return (
     <header>
       <h1>
@@ -12,7 +13,8 @@ function Header({searchListings, sortByLocation}) {
         gregslist
       </h1>
       <Search searchListings={searchListings} />
-      <Radio sortByLocation={sortByLocation} />
+      <Checkbox sortByLocation={sortByLocation} />
+      <Form addNewListing={addNewListing} />
     </header>
   );
 }
