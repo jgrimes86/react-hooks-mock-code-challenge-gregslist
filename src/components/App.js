@@ -4,6 +4,7 @@ import ListingsContainer from "./ListingsContainer";
 
 function App() {
   const [allListings, setAllListings] = useState([]);
+  const [searchedListings, setSearchedListings] = useState([])
   const listingDatabase = "http://localhost:6001/listings";
 
   useEffect(dataFetcher, [])
@@ -24,11 +25,20 @@ function App() {
     .then(() => dataFetcher())
   }
 
+  function searchListings(formData) {
+    setSearchedListings(allListings.filter((listing) => {
+      if (listing.description.includes(formData)) {
+        return true
+      }
+    }))
+  }
+
+  const displayedListings = (searchedListings.length > 0) ? searchedListings : allListings;
 
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer allListings={allListings} deleteListing={deleteListing} />
+      <Header searchListings={searchListings} />
+      <ListingsContainer displayedListings={displayedListings} deleteListing={deleteListing} />
     </div>
   );
 }
